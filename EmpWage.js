@@ -21,7 +21,8 @@ const IS_FULL_TIME = 2;
 const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
-/// Checks for the employee type.
+const TotalWorkingDays = 20;
+/// UC3 Checks for the employee type Using Function.
 function GetWorkingHours(employeecheck)
 {
 switch(employeecheck)
@@ -37,9 +38,11 @@ switch(employeecheck)
     }
 }
 let empHrs = 0;
-/// Generates random variable 0,1 & 2.
-let employeecheck = Math.floor(Math.random() * 10) % 3;
-empHrs = GetWorkingHours(employeecheck);
+// UC4 Calculate employee wages for a month
+for (let day = 0; day < TotalWorkingDays; day++) {
+    let employeecheck = Math.floor(Math.random() * 10) % 3;    
+    empHrs += GetWorkingHours(employeecheck);    
+}
 /// Calculates Employee wage for a day.
 let empWage = empHrs * WAGE_PER_HOUR;
 /// Prints Employee wage.
