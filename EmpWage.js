@@ -6,10 +6,12 @@ let empcheck = Math.floor(Math.random() * 10) % 2;
 /// Checks Employee is present or not.
 if(empcheck == IS_ABSENT)
 {
+    // Prints Employee is absent when random number is 0.
     console.log("Employee is Absent.");
     return;
 }
 else
 {
-    console.log("Employee is Present.")
+    // Prints Employee is Present when random number is 1.
+    console.log("Employee is Present.");
 }
