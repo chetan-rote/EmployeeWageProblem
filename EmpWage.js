@@ -39,4 +39,5 @@ switch(empcheck)
 }
 /// Calculates Employee wage for a day.
 let empWage = empHrs * WAGE_PER_HOUR;
+/// Prints Employee wage.
 console.log("Employee wage is: " + empWage);
