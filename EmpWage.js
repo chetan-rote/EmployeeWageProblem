@@ -21,7 +21,8 @@ const IS_FULL_TIME = 2;
 const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
-const TotalWorkingDays = 20;
+const NUM_OF_WORKING_DAYS = 20;
+const MAX_WORKING_HOURS = 100;
 /// UC3 Checks for the employee type Using Function.
 function GetWorkingHours(employeecheck)
 {
@@ -37,13 +38,17 @@ switch(employeecheck)
             return 0;
     }
 }
-let empHrs = 0;
-// UC4 Calculate employee wages for a month
-for (let day = 0; day < TotalWorkingDays; day++) {
+let totalEmpHrs = 0;
+let totalWorkingDays = 0;
+// UC5 Replacing the for loop with the while loop and then evaluating the employee wage
+while(totalEmpHrs <= MAX_WORKING_HOURS && totalWorkingDays < NUM_OF_WORKING_DAYS)
+{
+    totalWorkingDays++;
     let employeecheck = Math.floor(Math.random() * 10) % 3;    
-    empHrs += GetWorkingHours(employeecheck);    
+    totalEmpHrs += GetWorkingHours(employeecheck);    
 }
 /// Calculates Employee wage for a day.
-let empWage = empHrs * WAGE_PER_HOUR;
+let empWage = totalEmpHrs * WAGE_PER_HOUR;
 /// Prints Employee wage.
-console.log("Employee wage is: " + empWage);
+console.log("Total Days: " + totalWorkingDays+ " Total working hours: " +totalEmpHrs+ 
+             " Employee wage is: " + empWage);
