@@ -41,11 +41,16 @@ function calcDailyWage(empHrs) {
 let totalEmpHrs = 0;
 let totalWorkingDays = 0;
 let empDailyWageArr = new Array();
+let empDailyWageMap = new Map();
 // UC5 Replacing the for loop with the while loop and then evaluating the employee wage
-while (totalEmpHrs <= MAX_WORKING_HOURS && totalWorkingDays < NUM_OF_WORKING_DAYS) {
+while (totalEmpHrs <= MAX_WORKING_HOURS && totalWorkingDays < NUM_OF_WORKING_DAYS) 
+{
     totalWorkingDays++;
-    let employeecheck = Math.floor(Math.random() * 10) % 3;
-    totalEmpHrs += GetWorkingHours(employeecheck);
+    let employeeCheck = Math.floor(Math.random() * 10) % 3;
+    let empHrs = GetWorkingHours(employeeCheck);
+    totalEmpHrs += empHrs;
+    empDailyWageArr.push(calcDailyWage(empHrs));
+    empDailyWageMap.set(totalWorkingDays, calcDailyWage(empHrs));
 }
 /// Calculates Employee wage for a day.
 let empWage = totalEmpHrs * WAGE_PER_HOUR;
@@ -107,3 +112,11 @@ function totalDaysWorked(numOfDays, dailyWage) {
     return numOfDays;
 }
 console.log("UC7G Num of days employee worked: " + empDailyWageArr.reduce(totalDaysWorked, 0));
+//UC8 Printing Daily wage stored in Map.
+let totalWageFromMap = 0;
+for(let empWage of empDailyWageMap.values())
+{
+    totalWageFromMap += empWage;
+}
+console.log(empDailyWageMap)
+console.log("UC8:-Daily wage from Map: " + totalWageFromMap);
