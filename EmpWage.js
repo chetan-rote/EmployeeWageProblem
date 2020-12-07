@@ -38,6 +38,11 @@ switch(employeecheck)
             return 0;
     }
 }
+// UC6:- Calculate daily wage
+function calcDailyWage(empHrs)
+{
+    return empHrs * WAGE_PER_HOUR;
+}
 let totalEmpHrs = 0;
 let totalWorkingDays = 0;
 // UC5 Replacing the for loop with the while loop and then evaluating the employee wage
